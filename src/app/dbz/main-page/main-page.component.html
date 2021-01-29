@@ -2,17 +2,8 @@
 
 <hr>
 
-<h3>PERSONAJES</h3>
-<ul>
-    <li *ngFor="let personaje of personajes">{{personaje.nombre}} - {{personaje.poder | number}}</li>
-</ul>
+<app-personajes [personajes]="personajes"></app-personajes>
 
 <hr>
-<h3>AGREGAR</h3>
-<form (ngSubmit)="agregar()">
-    <input type="text" placeholder="Nombre de personaje" name="nombre" [(ngModel)]="nuevo.nombre" /><br>
-    <input type="number" placeholder="Poder" name="poder" [(ngModel)]="nuevo.poder" />
-    <button type="submit">
-        Agregar
-    </button>
-</form>
+
+<app-agregar [nuevo]="nuevo" (onNuevoPersonaje)="agregarNuevoPersonaje($event)"></app-agregar>
